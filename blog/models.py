@@ -7,3 +7,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    body = models.TextField()
+    name = models.CharField(max_length=255)
+    date_creation = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, related_name="comments")
+    
+    def __str__(self):
+        return self.body
