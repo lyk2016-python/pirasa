@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hey</title>
+</head>
+<body>
+<h1>Hey {{ name }}</h1>
+<h3>Blog posts:</h3>
+<ul>
+	{% for post in posts %}
+	<li><a href="{% url "post_detail" post.id %}">{{ post }}</a></li>
+	{% endfor %}
+</ul>
+Toplam: {{ post_count }}
+</body>
+</html>
