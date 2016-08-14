@@ -1,14 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Hey</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-<h1>Hey {{ name }}</h1>
-<h3>Blog posts:</h3>
-<ul>
+<h1 class="main-title">Hey!</h1>
+<h3 class="sub-title">Blog posts:</h3>
+<ul class="post-container">
 	{% for post in posts %}
-	<li><a href="{% url "post_detail" post.id %}">{{ post }}</a></li>
+	<li class="post-item"><a href="{% url "post_detail" post.id %}">{{ post }}</a></li>
 	{% endfor %}
 </ul>
 Toplam: {{ post_count }}

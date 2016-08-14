@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
+from django.shortcuts import redirect
 
 from blog.models import Post, Comment
 from blog.forms import CommentForm
@@ -11,7 +12,6 @@ def home(request):
 	)
 	post_count = posts.count()
 	return render(request, 'home.html', {
-		'name': 'Fatih',
 		'posts': posts,
 		'post_count': post_count
 	})
@@ -27,6 +27,7 @@ def post_detail(request, id):
 		if form.is_valid():
 			form.instance.post_id = id
 			form.save()
+			return redirect('/posts/%s' %id)
 
 	return render(request, 'detail.html', {
 		'post': post,

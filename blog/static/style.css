@@ -1,0 +1,17 @@
+body{
+	font-family: 'helvetica', sans-serif;
+}
+a{
+	text-decoration: none;
+}
+.main-title{
+	text-align: center;
+	background: pink;
+	padding:50px;
+}
+.post-item{
+	list-style: none;
+}
+.post-item a{
+	color:purple;
+}
